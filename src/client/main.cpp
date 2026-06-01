@@ -87,8 +87,11 @@ int main(int argc, char **argv)
     // 初始化读写线程通信用的信号量
     sem_init(&rwsem, 0, 0);
 
+
     // 连接服务器成功，启动接收子线程
+    //readTaskHandler函数负责接收服务器发送的消息
     std::thread readTask(readTaskHandler, clientfd); // pthread_create
+    //detach()函数将线程与主线程分离，主线程继续执行，子线程继续执行
     readTask.detach();                               // pthread_detach
 
     // main线程用于接收用户输入，负责发送数据

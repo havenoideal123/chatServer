@@ -1,5 +1,5 @@
 #include "friendmodel.hpp"
-#include "db.h"
+#include "dbpool_helper.hpp"
 
 
 void FriendModel::insert(int userid,int friendid)
@@ -7,9 +7,9 @@ void FriendModel::insert(int userid,int friendid)
     //添加好友
     char sql[128] = {0};
     sprintf(sql,"insert into Friend(userid,friendid) values(%d,%d)",userid,friendid);
-    MySQL mysql;
-    if(mysql.connect()){
-        mysql.update(sql);
+    auto conn = getMysqlConn();
+    if(conn){
+        conn->update(sql);
     }
 }
 
@@ -20,9 +20,9 @@ vector<User> FriendModel::query(int userid)
     char sql[128] = {0};
     sprintf(sql,"select a.id,a.name,a.state from User a inner join Friend b on a.id = b.friendid where b.userid = %d",userid);
     vector<User> res;
-    MySQL mysql;
-    if(mysql.connect()){
-        MYSQL_RES *res = mysql.query(sql);
+    auto conn = getMysqlConn();
+    if(conn){
+        MYSQL_RES *res = conn->query(sql);
         if(res != nullptr)
         {
             MYSQL_ROW row;
