@@ -6,13 +6,13 @@
 using namespace muduo;
 using namespace muduo::net;
 
-//聊天服务器的朱磊
+//聊天服务器的主类
 class ChatServer
 {
 public:
     ChatServer(EventLoop* loop, //事件循环
         const InetAddress& listenAddr, //监听地址——ip:port
-        const string& nameArg);
+        const string& nameArg); //服务器名称
     
     //开启事件循环
     void start();

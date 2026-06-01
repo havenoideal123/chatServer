@@ -1,18 +1,21 @@
 #include "groupmodel.hpp"
-#include "db.h"
+#include "dbpool_helper.hpp"
 
 
 //创建群组
 bool GroupModel::createGroup(Group &group)
 {
+    auto conn = getMysqlConn();
     //创建群组
     char sql[128] = {0};
-    sprintf(sql,"insert into AllGroup(groupname,groupdesc) values('%s','%s')",group.getName().c_str(),group.getDesc().c_str());
-    MySQL mysql;
-    if(mysql.connect()){
-        if(mysql.update(sql))
+    string name = conn->escapeString(group.getName());
+    string desc = conn->escapeString(group.getDesc());
+    sprintf(sql,"insert into AllGroup(groupname,groupdesc) values('%s','%s')",name.c_str(),desc.c_str());
+
+    if(conn){
+        if(conn->update(sql))
         {
-            group.setId(mysql_insert_id(mysql.getConnection()));
+            group.setId(mysql_insert_id(conn->getConnection()));
             return true;
         }
     }
@@ -22,12 +25,14 @@ bool GroupModel::createGroup(Group &group)
 //加入群组
 void GroupModel::addGroup(int userid,int groupid,string role)
 {
+    auto conn = getMysqlConn();
     //加入群组
     char sql[128] = {0};
+    role = conn->escapeString(role);
     sprintf(sql,"insert into GroupUser values(%d,%d,'%s')",userid,groupid,role.c_str());
-    MySQL mysql;
-    if(mysql.connect()){
-        mysql.update(sql);
+
+    if(conn){
+        conn->update(sql);
     }
 }
 
@@ -42,9 +47,9 @@ vector<Group> GroupModel::queryGroups(int userid)
     sprintf(sql,"select a.id,a.groupname,a.groupdesc from AllGroup a inner join GroupUser b on a.id = b.groupid where b.userid = %d",userid);
     
     vector<Group> groupVec;
-    MySQL mysql;
-    if(mysql.connect()){
-        MYSQL_RES *res = mysql.query(sql);
+    auto conn = getMysqlConn();
+    if(conn){
+        MYSQL_RES *res = conn->query(sql);
         if(res != nullptr)
         {
             MYSQL_ROW row;
@@ -64,7 +69,7 @@ vector<Group> GroupModel::queryGroups(int userid)
     for (Group &group : groupVec)
     {
         sprintf(sql,"select a.id,a.name,a.state from User a inner join GroupUser b on a.id = b.userid where b.groupid = %d",group.getId());
-        MYSQL_RES *res = mysql.query(sql);
+        MYSQL_RES *res = conn->query(sql);
         if(res != nullptr)
         {
             MYSQL_ROW row;
@@ -88,9 +93,9 @@ vector<int> GroupModel::queryGroupUsers(int userid,int groupid)
     char sql[128] = {0};
     sprintf(sql,"select userid from GroupUser where groupid = %d and userid != %d",groupid,userid);
     vector<int> userVec;
-    MySQL mysql;
-    if(mysql.connect()){
-        MYSQL_RES *res = mysql.query(sql);
+    auto conn = getMysqlConn();
+    if(conn){
+        MYSQL_RES *res = conn->query(sql);
         if(res != nullptr)
         {
             MYSQL_ROW row;

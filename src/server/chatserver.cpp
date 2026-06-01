@@ -37,6 +37,7 @@ void ChatServer::onConnection(const TcpConnectionPtr& conn)
     }
 }
 
+//todo ： 这个函数目前并没有鉴权，后续需要添加鉴权逻辑。当前的逻辑只要msgid对了就会调用对应的处理函数，但是没有判断发送消息的客户端是否是已登录的以及消息是否和用户匹配上
 void ChatServer::onMessage(const TcpConnectionPtr& conn, //连接
                             Buffer* buffer, //缓冲区
                             Timestamp time) //时间戳

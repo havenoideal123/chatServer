@@ -12,7 +12,7 @@ public:
     //更新用户状态
     bool updateState(User &user);
     //重置用户状态为offline
-    void restState();
+    void resetState();
 };
 
 

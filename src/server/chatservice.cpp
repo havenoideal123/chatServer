@@ -33,6 +33,7 @@ ChatService::ChatService()
     //连接redis
     if(_redis.connect())
     {
+        // 注册redis的回调函数，用于处理订阅通道中的消息
         _redis.init_notify_handler(std::bind(&ChatService::handleRedisSubscribeMessage,this,_1,_2));
     }
 
@@ -61,10 +62,10 @@ MsgHandler ChatService::getHandler(int msgId)
 }
 
 //重置用户状态
-void ChatService::rest()
+void ChatService::reset()
 {
     //将所有用户状态重置为offline
-    _userModel.restState();
+    _userModel.resetState();
 }
 
 
@@ -94,7 +95,7 @@ void ChatService::login(const TcpConnectionPtr &conn,json &js,Timestamp time)
             {
                 lock_guard<mutex> lock(_connMutex);
                 _userConnMap.insert({id,conn});
-            }
+            } 
 
             //订阅用户id的通道
             _redis.subscribe(id);
@@ -154,18 +155,23 @@ void ChatService::login(const TcpConnectionPtr &conn,json &js,Timestamp time)
 //处理注册业务
 void ChatService::reg(const TcpConnectionPtr &conn,json &js,Timestamp time)
 {
+    //从json中获取用户信息
     string name = js["name"];
     string pwd = js["password"];
+    //创建用户对象
     User user;
     user.setName(name);
     user.setPassword(pwd);
+    //注册用户。调用_userModel的insert()函数，将用户对象插入到数据库中
     if(_userModel.insert(user))
     {
         LOG_INFO << "Reg success!";
         json response;
+        //注册成功，返回用户id
         response["msgid"] = REG_MSG_ACK;
         response["errno"] = 0;
         response["id"] = user.getId();
+        //send函数用于发送消息，dump()函数用于将json对象转换为字符串（返回的是一个string对象）
         conn->send(response.dump());
     }
     else
@@ -307,6 +313,7 @@ void ChatService::oneChatMsg(const TcpConnectionPtr &conn, json &js, Timestamp t
     int toId = js["toid"].get<int>();
     
     {
+        
         lock_guard<mutex> lock(_connMutex);
         auto it = _userConnMap.find(toId);
         // 确认是在线状态
@@ -320,8 +327,10 @@ void ChatService::oneChatMsg(const TcpConnectionPtr &conn, json &js, Timestamp t
 
     // 发送消息到 toId 的通道。这里是当toid不在本机登陆，而在别的地方登陆时，需要将消息发送到toid的通道
     User user = _userModel.query(toId);
+    // 确认是在线状态，也就是我们当前服务器中没有找到对应的用户连接信息，但是用户的状态是online，因为online这个信息在数据库，就说明别的地方登陆了
     if(user.getState() == "online")
     {
+        // 发送消息到 toId 的通道
         _redis.publish(toId,js.dump());
         return;
     }
@@ -333,10 +342,12 @@ void ChatService::oneChatMsg(const TcpConnectionPtr &conn, json &js, Timestamp t
 //从redis消息队列获取消息
 void ChatService::handleRedisSubscribeMessage(int channel, string message)
 {
+    // 从map中查找对应的用户连接信息
     lock_guard<mutex> lock(_connMutex);
-    auto it = _userConnMap.find(channel);
+    auto it = _userConnMap.find(channel); // 查找对应的用户连接信息，channel是用户id
     if(it != _userConnMap.end())
     {
+        // 发送消息到对应的用户连接信息
         it->second->send(message);
         return;
     }

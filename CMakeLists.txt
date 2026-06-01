@@ -16,5 +16,11 @@ include_directories(${PROJECT_SOURCE_DIR}/include/server/redis)
 
 include_directories(${PROJECT_SOURCE_DIR}/third_party)
 
+configure_file(
+    ${PROJECT_SOURCE_DIR}/src/server/db/mysql.conf
+    ${PROJECT_SOURCE_DIR}/bin/mysql.conf
+    COPYONLY
+)
+
 #加载子目录
 add_subdirectory(src)

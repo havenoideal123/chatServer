@@ -65,7 +65,7 @@ public:
 
 
     //重置
-    void rest();
+    void reset();
 private:
     //构造函数私有化，防止外部创建对象
     ChatService();

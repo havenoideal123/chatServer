@@ -1,0 +1,57 @@
+[
+{
+  "directory": "/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/build/src/server",
+  "command": "/usr/bin/g++  -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server/db -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server/model -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server/redis -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/third_party -g -g -o CMakeFiles/server.dir/chatserver.cpp.o -c /home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/src/server/chatserver.cpp",
+  "file": "/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/src/server/chatserver.cpp"
+},
+{
+  "directory": "/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/build/src/server",
+  "command": "/usr/bin/g++  -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server/db -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server/model -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server/redis -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/third_party -g -g -o CMakeFiles/server.dir/chatservice.cpp.o -c /home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/src/server/chatservice.cpp",
+  "file": "/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/src/server/chatservice.cpp"
+},
+{
+  "directory": "/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/build/src/server",
+  "command": "/usr/bin/g++  -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server/db -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server/model -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server/redis -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/third_party -g -g -o CMakeFiles/server.dir/main.cpp.o -c /home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/src/server/main.cpp",
+  "file": "/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/src/server/main.cpp"
+},
+{
+  "directory": "/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/build/src/server",
+  "command": "/usr/bin/g++  -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server/db -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server/model -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server/redis -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/third_party -g -g -o CMakeFiles/server.dir/db/CommonConnectionPool.cpp.o -c /home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/src/server/db/CommonConnectionPool.cpp",
+  "file": "/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/src/server/db/CommonConnectionPool.cpp"
+},
+{
+  "directory": "/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/build/src/server",
+  "command": "/usr/bin/g++  -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server/db -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server/model -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server/redis -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/third_party -g -g -o CMakeFiles/server.dir/db/Connection.cpp.o -c /home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/src/server/db/Connection.cpp",
+  "file": "/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/src/server/db/Connection.cpp"
+},
+{
+  "directory": "/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/build/src/server",
+  "command": "/usr/bin/g++  -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server/db -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server/model -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server/redis -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/third_party -g -g -o CMakeFiles/server.dir/model/friendmodel.cpp.o -c /home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/src/server/model/friendmodel.cpp",
+  "file": "/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/src/server/model/friendmodel.cpp"
+},
+{
+  "directory": "/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/build/src/server",
+  "command": "/usr/bin/g++  -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server/db -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server/model -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server/redis -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/third_party -g -g -o CMakeFiles/server.dir/model/groupmodel.cpp.o -c /home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/src/server/model/groupmodel.cpp",
+  "file": "/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/src/server/model/groupmodel.cpp"
+},
+{
+  "directory": "/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/build/src/server",
+  "command": "/usr/bin/g++  -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server/db -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server/model -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server/redis -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/third_party -g -g -o CMakeFiles/server.dir/model/offlinemessagemodel.cpp.o -c /home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/src/server/model/offlinemessagemodel.cpp",
+  "file": "/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/src/server/model/offlinemessagemodel.cpp"
+},
+{
+  "directory": "/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/build/src/server",
+  "command": "/usr/bin/g++  -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server/db -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server/model -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server/redis -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/third_party -g -g -o CMakeFiles/server.dir/model/usermodel.cpp.o -c /home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/src/server/model/usermodel.cpp",
+  "file": "/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/src/server/model/usermodel.cpp"
+},
+{
+  "directory": "/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/build/src/server",
+  "command": "/usr/bin/g++  -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server/db -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server/model -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server/redis -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/third_party -g -g -o CMakeFiles/server.dir/redis/redis.cpp.o -c /home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/src/server/redis/redis.cpp",
+  "file": "/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/src/server/redis/redis.cpp"
+},
+{
+  "directory": "/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/build/src/client",
+  "command": "/usr/bin/g++  -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server/db -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server/model -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/include/server/redis -I/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/third_party -g -g -o CMakeFiles/client.dir/main.cpp.o -c /home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/src/client/main.cpp",
+  "file": "/home/hack/Desktop/C++_chat_project/chat_muduo/chatServer/src/client/main.cpp"
+}
+]
